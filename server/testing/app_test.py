@@ -36,9 +36,9 @@ class TestPlant:
         )
         data = json.loads(response.data.decode())
 
-        assert(type(data) == dict)
-        assert(data["id"])
-        assert(data["is_in_stock"] == False)
+        assert isinstance(data, dict)
+        assert "id" in data
+        assert data["is_in_stock"] is False
 
     def test_plant_by_id_delete_route_deletes_plant(self):
         '''returns JSON representing updated Plant object at "/plants/<int:id>".'''
